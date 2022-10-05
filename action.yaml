@@ -16,12 +16,10 @@ inputs:
 
 
 runs:
-  using: "composite"
+  using: windows-latest
   steps: 
     - run: ls
       shell: powershell
-    - run: ls
-      shell: shell
     - name: Expand-Archive
       id: unpack
       shell: powershell
