@@ -10,6 +10,7 @@ jobs:
   analysis:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Expand-Archive
       id: unpack
       run: |
