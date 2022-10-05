@@ -22,7 +22,7 @@ runs:
       id: unpack
       shell: powershell
       run: |
-        Expand-Archive .\net472.zip -DestinationPath .\
+        Expand-Archive archive/net472.zip -DestinationPath .\
     
     - name: Run metrics
       shell: powershell
