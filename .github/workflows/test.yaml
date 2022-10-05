@@ -1,0 +1,14 @@
+# The name of the work flow. Badges will use this name
+name: Check files
+
+on:
+  push:
+    branches: 
+    - main
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: ls archive
