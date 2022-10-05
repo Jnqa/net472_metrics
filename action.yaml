@@ -1,0 +1,31 @@
+name: 'Build Metrics'
+description: ''
+inputs:
+  project:
+    description: 'filename.csproj'
+    required: true
+    default: 'any-CSharp.csproj'
+  report:
+    description: 'report filename'
+    required: false
+    default: 'report.xml'
+# outputs:
+#   report:
+#     description: "Output report"
+#     value: ${{ steps.report.outputs.report }}
+
+
+runs:
+  using: "composite"
+  steps: 
+    - name: Expand-Archive
+      id: unpack
+      shell: powershell
+      run: |
+        Expand-Archive .\net472.zip -DestinationPath .\
+    
+    - name: Run metrics
+      shell: powershell
+      id: report
+      run: |
+        ./net472/Metrics.exe /project:./${{ inputs.project }} /out:./${{ inputs.report }}
