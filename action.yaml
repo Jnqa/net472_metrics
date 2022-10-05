@@ -16,9 +16,11 @@ inputs:
 
 
 runs:
-  using: windows-latest
+  using: composite
   steps: 
     - run: ls
+      shell: powershell
+    - run: curl https://github.com/Jnqa/net472_metrics/raw/main/archive/net472.zip --output archive/net472.zip
       shell: powershell
     - name: Expand-Archive
       id: unpack
