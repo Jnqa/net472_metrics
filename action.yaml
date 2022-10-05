@@ -18,11 +18,15 @@ inputs:
 runs:
   using: "composite"
   steps: 
+    - run: ls
+      shell: powershell
+    - run: ls
+      shell: shell
     - name: Expand-Archive
       id: unpack
       shell: powershell
       run: |
-        Expand-Archive archive/net472.zip -DestinationPath .\
+        Expand-Archive archive\net472.zip -DestinationPath .\
     
     - name: Run metrics
       shell: powershell
